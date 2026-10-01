@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EVOLVE · Customer Operations Agent</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <div class="logo">E</div>
+    <div>
+      <h1>EVOLVE Customer Operations</h1>
+      <p>Multi-agent resolution system · Intent → CRM → RAG → Investigation → Resolution → Escalation</p>
+    </div>
+  </div>
+  <div id="llmBadge" class="badge">checking model…</div>
+</header>
+
+<section class="stats" id="stats"></section>
+
+<main class="grid">
+  <section class="card">
+    <h2>New Support Request</h2>
+    <div class="samples" id="samples"></div>
+    <label>Customer message</label>
+    <textarea id="message" rows="5" placeholder="Describe the customer issue…"></textarea>
+    <div class="row">
+      <div><label>Email (optional)</label><input id="email" placeholder="customer@company.com"></div>
+      <div><label>Order no. (optional)</label><input id="order" placeholder="ORD-10001"></div>
+    </div>
+    <button id="submitBtn" class="primary">Run Agents</button>
+
+    <h3>Agent Pipeline</h3>
+    <ol class="pipeline" id="pipeline"></ol>
+  </section>
+
+  <section class="card wide" id="detail">
+    <div class="empty">Submit a request or pick a ticket from the queue to see the investigation.</div>
+  </section>
+
+  <section class="card full">
+    <div class="queue-head">
+      <h2>Ticket Queue</h2>
+      <div class="filters" id="filters"></div>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Ticket</th><th>Customer</th><th>Intent</th><th>Priority</th><th>Action</th><th>Status</th><th>Created</th></tr></thead>
+        <tbody id="queue"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card full">
+    <h2>Customer Directory <span class="muted">(use these emails / order numbers to test)</span></h2>
+    <div class="customers" id="customers"></div>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>

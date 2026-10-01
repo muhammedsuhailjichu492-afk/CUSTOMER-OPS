@@ -1,0 +1,5 @@
+venv/
+__pycache__/
+*.pyc
+data/customer_ops.db
+.env
